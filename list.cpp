@@ -92,6 +92,21 @@ void beginAndEnd(list* head){
     cout << "Words that start and end with the same letter: " << count << endl;
 }
 
+//checking for values that start with the same letter as the previous word ends
+void beginFirstEndPrevious(list* head){
+    int count = 0;
+    string previous = "";
+
+    while (head){
+        string word = head->data;
+        
+        if (!previous.empty() && previous.back() == word.front()) 
+            count++;
+        previous = word;
+        head = head->next;
+    }
+    cout << "Words that start with the same letter as the previous word ends: " << count << endl;
+}
 
 int main(){
 
@@ -102,15 +117,17 @@ int main(){
     int n;
     cout << "Enter word count: "; cin >> n;
 
+    //populating a list with elements entered by the user
     for (int i = 0; i < n; i++){
         string str;
-        cout << "Enter "<< i+1 <<" word: "; cin >> str;
+        cout << "Enter "<< i+1 << " word: "; cin >> str;
         listAdd(&head, &tail, str);
     }
 
     listShow(head);
 
     beginAndEnd(head);
+    beginFirstEndPrevious(head);
 
     listDel(&head, &tail);
 }
