@@ -77,6 +77,22 @@ void listDel(list** head, list** tail){
     *tail = NULL;
 }
 
+//checking for values that start and end with the same letter
+void beginAndEnd(list* head){
+    int count = 0;
+
+    while (head){
+        string word;
+        word = head->data;
+
+        if (word.front() == word.back())
+            count++;
+        head = head->next;
+    }
+    cout << "Words that start and end with the same letter: " << count << endl;
+}
+
+
 int main(){
 
     list *head;
@@ -93,6 +109,8 @@ int main(){
     }
 
     listShow(head);
+
+    beginAndEnd(head);
 
     listDel(&head, &tail);
 }
