@@ -108,6 +108,24 @@ void beginFirstEndPrevious(list* head){
     cout << "Words that start with the same letter as the previous word ends: " << count << endl;
 }
 
+//checking for values that match the last word
+void matchTheLastWord (list* head, int sizeOfList){
+    string arr[sizeOfList];
+    int i = 0;
+    int count = 0;
+
+    while (head){
+        arr[i] += head->data;
+        i++;
+        head = head->next;
+    }
+
+    for (int i = 0; i < sizeOfList - 1; i++)
+        if (arr[i] == arr[sizeOfList -1])
+            count++;
+    cout << "Words matching the last word: " << count << endl;
+}
+
 int main(){
 
     list *head;
@@ -128,6 +146,7 @@ int main(){
 
     beginAndEnd(head);
     beginFirstEndPrevious(head);
+    matchTheLastWord(head, n);
 
     listDel(&head, &tail);
 }
