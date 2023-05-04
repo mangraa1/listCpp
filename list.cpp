@@ -1,12 +1,12 @@
 #include <iostream>
 
 struct list {
-    string data;
+    std::string data;
     list* next;
 };
 
 //adding elements to a list
-void listAdd(list** head, list** tail, string data){
+void listAdd(list** head, list** tail, std::string data){
     list* temp = new list;
     temp->data = data;
     temp->next = NULL;
@@ -21,7 +21,7 @@ void listAdd(list** head, list** tail, string data){
 
 //list output
 void listShow(list* head){
-    std::cout << endl << "your list is: " << std::endl;
+    std::cout << std::endl << "your list is: " << std::endl;
     int i = 1;
     while (head){
         std::cout << i << ". " << head->data << std::endl;
@@ -33,7 +33,7 @@ void listShow(list* head){
 
 //adding a new element to any position
 void listAddPos(list** head, list** tail){
-    string data;
+    std::string data;
     int pos;
     std::cout << "enter data: "; std::cin >> data;
     std::cout << "enter position: "; std::cin >> pos;
@@ -80,7 +80,7 @@ void beginAndEnd(list* head){
     int count = 0;
 
     while (head){
-        string word;
+        std::string word;
         word = head->data;
 
         if (word.front() == word.back())
@@ -93,10 +93,10 @@ void beginAndEnd(list* head){
 //checking for values that start with the same letter as the previous word ends
 void beginFirstEndPrevious(list* head){
     int count = 0;
-    string previous = "";
+    std::string previous = "";
 
     while (head){
-        string word = head->data;
+        std::string word = head->data;
         
         if (!previous.empty() && previous.back() == word.front()) 
             count++;
@@ -108,7 +108,7 @@ void beginFirstEndPrevious(list* head){
 
 //checking for values that match the last word
 void matchTheLastWord (list* head, int sizeOfList){
-    string arr[sizeOfList];
+    std::string arr[sizeOfList];
     int i = 0;
     int count = 0;
 
@@ -135,7 +135,7 @@ int main(){
 
     //populating a list with elements entered by the user
     for (int i = 0; i < n; i++){
-        string str;
+        std::string str;
         std::cout << "Enter "<< i+1 << " word: "; std::cin >> str;
         listAdd(&head, &tail, str);
     }
