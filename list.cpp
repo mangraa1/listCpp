@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 struct list {
     string data;
     list* next;
@@ -23,22 +21,22 @@ void listAdd(list** head, list** tail, string data){
 
 //list output
 void listShow(list* head){
-    cout << endl << "your list is: " << endl;
+    std::cout << endl << "your list is: " << std::endl;
     int i = 1;
     while (head){
-        cout << i << ". " << head->data << endl;
+        std::cout << i << ". " << head->data << std::endl;
         i++;
         head = head->next;
     }
-    cout << endl;
+    std::cout << std::endl;
 }
 
 //adding a new element to any position
 void listAddPos(list** head, list** tail){
     string data;
     int pos;
-    cout << "enter data: "; cin >> data;
-    cout << "enter position: "; cin >> pos;
+    std::cout << "enter data: "; cin >> data;
+    std::cout << "enter position: "; cin >> pos;
 
     list* temp = new list;
     temp->data = data;
@@ -89,7 +87,7 @@ void beginAndEnd(list* head){
             count++;
         head = head->next;
     }
-    cout << "Words that start and end with the same letter: " << count << endl;
+    std::cout << "Words that start and end with the same letter: " << count << std::endl;
 }
 
 //checking for values that start with the same letter as the previous word ends
@@ -105,7 +103,7 @@ void beginFirstEndPrevious(list* head){
         previous = word;
         head = head->next;
     }
-    cout << "Words that start with the same letter as the previous word ends: " << count << endl;
+    std::cout << "Words that start with the same letter as the previous word ends: " << count << std::endl;
 }
 
 //checking for values that match the last word
@@ -123,7 +121,7 @@ void matchTheLastWord (list* head, int sizeOfList){
     for (int i = 0; i < sizeOfList - 1; i++)
         if (arr[i] == arr[sizeOfList -1])
             count++;
-    cout << "Words matching the last word: " << count << endl;
+    std::cout << "Words matching the last word: " << count << std::endl;
 }
 
 int main(){
@@ -133,12 +131,12 @@ int main(){
     head = tail = NULL;
 
     int n;
-    cout << "Enter word count: "; cin >> n;
+    std::cout << "Enter word count: "; cin >> n;
 
     //populating a list with elements entered by the user
     for (int i = 0; i < n; i++){
         string str;
-        cout << "Enter "<< i+1 << " word: "; cin >> str;
+        std::cout << "Enter "<< i+1 << " word: "; cin >> str;
         listAdd(&head, &tail, str);
     }
 
