@@ -35,8 +35,8 @@ void listShow(list* head){
 void listAddPos(list** head, list** tail){
     string data;
     int pos;
-    std::cout << "enter data: "; cin >> data;
-    std::cout << "enter position: "; cin >> pos;
+    std::cout << "enter data: "; std::cin >> data;
+    std::cout << "enter position: "; std::cin >> pos;
 
     list* temp = new list;
     temp->data = data;
@@ -131,12 +131,12 @@ int main(){
     head = tail = NULL;
 
     int n;
-    std::cout << "Enter word count: "; cin >> n;
+    std::cout << "Enter word count: "; std::cin >> n;
 
     //populating a list with elements entered by the user
     for (int i = 0; i < n; i++){
         string str;
-        std::cout << "Enter "<< i+1 << " word: "; cin >> str;
+        std::cout << "Enter "<< i+1 << " word: "; std::cin >> str;
         listAdd(&head, &tail, str);
     }
 
