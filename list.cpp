@@ -124,12 +124,30 @@ void matchTheLastWord (list* head, int sizeOfList){
     std::cout << "Words matching the last word: " << count << std::endl;
 }
 
+//checks whether there are at least two identical elements in the list
+bool identicalElements(list* head, list* tail){
+    list* temp1 = head;
+    list* temp2;
+
+    while (temp1->next){
+        temp2 = temp1->next;
+
+        while (temp2)
+            if (temp1->data == temp2->data)
+                return true;
+            else 
+                temp2 = temp2->next;
+        temp1 = temp1->next;
+    }
+    return false;
+}
+
 int main(){
 
     list *head;
     list *tail; 
     head = tail = NULL;
-
+ 
     int n;
     std::cout << "Enter word count: "; std::cin >> n;
 
@@ -145,6 +163,6 @@ int main(){
     beginAndEnd(head);
     beginFirstEndPrevious(head);
     matchTheLastWord(head, n);
-
+    
     listDel(&head, &tail);
 }
