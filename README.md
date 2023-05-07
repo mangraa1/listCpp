@@ -7,3 +7,4 @@ A program that creates a singly linked linear list, displays it on the screen, f
     - begin and end with the same letter;
     - begin with the same letter with which the previous word ends;
     - match the last word.
+- checks whether there are at least two identical elements in the list.
